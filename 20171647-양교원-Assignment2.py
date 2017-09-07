@@ -1,5 +1,5 @@
 def Factorial(inNumber):
-    if ( inNumber <=  0 ):
+    if ( inNumber ==  0 ):
         return 1
 
     result = 1
