@@ -8,6 +8,6 @@ def Factorial(inNumber):
     return result
 
 num = int(input(" Enter a number: " ) )
-while ( num != -1 ):
+while ( num > -1 ):
     print( "%d!" %num, " = ", "%d" %Factorial(num) )
     num = int(input(" Enter a number: " ) )
