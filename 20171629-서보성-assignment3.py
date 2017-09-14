@@ -33,11 +33,11 @@ def doScoreDB(scdb):
         if parse[0] == 'add':
             record = {'Name':parse[1], 'Age':parse[2], 'Score':parse[3]}
             scdb += [record]
-        elif parse[0] == 'del':    #구현못함
+        elif parse[0] == 'del':    
             for p in scdb:
                 if p['Name'] == parse[1]:
                     scdb.remove(p)
-        elif parse[0] == 'inc':   #구현못함
+        elif parse[0] == 'inc':   
             for p in scdb:
                 if p['Name'] == parse[1]:
                     for X in p:
