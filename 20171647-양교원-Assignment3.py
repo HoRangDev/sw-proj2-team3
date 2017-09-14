@@ -36,7 +36,7 @@ def doScoreDB(scdb):
 				check = int(parse[3])
 				check = int(parse[2])
 			except:
-				print("Wrong Input!")
+				print("Wrong Input!: You must write like this.=> add Name Age Score")
 			else:
 				record = {'Name':parse[1], 'Age':parse[2], 'Score':int(parse[3])}
 				scdb += [record]
@@ -51,13 +51,9 @@ def doScoreDB(scdb):
 						if p['Name'] == parse[1]:
 							scdb.remove(p)
 		elif parse[0] == 'show':
-			try:
-				 if len(parse) == 1 else parse[1]
-			except:
-				print("Wrong Input!")
-			else:
-				sortKey ='Name'
-				showScoreDB(scdb, sortKey)
+			sortKey ='Name'
+			showScoreDB(scdb, sortKey)
+
 		elif parse[0] == 'find':
 			try:
 				check = parse[1]
@@ -65,6 +61,14 @@ def doScoreDB(scdb):
 				print("Check your input!")
 			else:
 				findDB(scdb, parse[1])
+
+		elif parse[0] == 'findNA':
+			try:
+				check = int(parse[2])
+			except:
+				print("Wrong Input!")
+			else:
+				findNADB(scdb, parse[1], int(parse[2]))
 				
 		elif parse[0] == 'inc':
 			try:
@@ -73,6 +77,10 @@ def doScoreDB(scdb):
 				print("Check your input!")
 			else:
 				increseDB(scdb, parse[1], int(parse[2]))
+
+		elif parse[0] == 'best':
+			bestDB(scdb)
+
 		elif parse[0] == 'quit':
 			break
 		else:
@@ -94,13 +102,28 @@ def findDB(scdb, keyname):
 	for p in scdb:
 		if p['Name'] == keyname:
 			for attr in sorted(p):
-				print(attr + "=" + p[attr], end=' ')
+				print(attr + "=" + str(p[attr]), end=' ')
+			print()
+
+def findNADB(scdb, name, age):
+	for p in scdb:
+		if (p['Name'] == name) and (p['Age'] == age):
+			for attr in sorted(p):
+				print(attr + "=" + str(p[attr]), end=' ')
 			print()
 
 def increseDB(scdb, keyname, amount):
 	for p in scdb:
 		if p['Name'] == keyname:
 			p['Score'] += amount
+
+def bestDB(scdb):
+	before = 0
+	for p in sorted(scdb, key=lambda person: -person['Score']):
+		if (before <= p['Score']):
+			for attr in sorted(p):
+				print(attr + "=" + str(p[attr]), end=' ')
+			print()
 
 scoredb = readScoreDB()
 doScoreDB(scoredb)
