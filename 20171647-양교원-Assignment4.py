@@ -21,7 +21,21 @@ def RecursivelyCombi(n, m):
         return 1
     return RecursivelyCombi(n-1,m) + RecursivelyCombi(n-1, m-1)
 
+def Input(inputList):
+    inputList[0] = int(input('N: '))
+    if inputList[0] == -1:
+        return False
+    
+    inputList[1] = int(input('M: '))
+    return True
 
-print(RecursivelyFacto(4))
-print(Combination(6, 3))
-print(RecursivelyCombi(6,3))
+# Main
+inputList = [0,0]
+try:
+    while Input(inputList):
+        print(RecursivelyCombi(inputList[0], inputList[1]))
+except:
+    print('Wrong Input value!')
+finally:
+    print('Program ended')
+# Main Ended
