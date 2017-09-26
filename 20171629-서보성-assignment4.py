@@ -8,6 +8,9 @@ while True:
     n = float(input("N = "))
     m = float(input("M = "))
     
+    if n == -1:
+        break
+        
     if n/2 < m:
         m = n-m
 
@@ -18,5 +21,4 @@ while True:
         print("Cf(%d, %d) = %d" %(n, m, Answer))
         print("Cf(%d, %d) = %d" %(n, m, Combination_1(n, m)))
 
-    if n == -1:
-        break
+    
