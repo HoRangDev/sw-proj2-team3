@@ -7,6 +7,7 @@ def Combination_1(n, m):
 while True:
     n = float(input("N = "))
     m = float(input("M = "))
+    k = m
     
     if n == -1:
         break
@@ -18,7 +19,7 @@ while True:
         print("에러 발생")
     else:
         Answer = Factorial(n) / Factorial(m) / Factorial(n-m)
-        print("Cf(%d, %d) = %d" %(n, m, Answer))
-        print("Cf(%d, %d) = %d" %(n, m, Combination_1(n, m)))
+        print("Cf(%d, %d) = %d" %(n, k, Answer))
+        print("Cf(%d, %d) = %d" %(n, k, Combination_1(n, m)))
 
     
