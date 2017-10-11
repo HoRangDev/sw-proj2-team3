@@ -5,7 +5,6 @@ def iterfibo(n):
     if ( n <= 1):
         return n
 
-    
     before = [1, 1]
     current = 0
     for count in range(n-2):
@@ -21,7 +20,6 @@ def fibo(n):
 
     return fibo(n-1) + fibo(n-2)
 
-
 while True:
 	nbr = int(input("Enter a number: "))
 	if nbr == -1:
@@ -30,7 +28,6 @@ while True:
 	fibonumber = fibo(nbr)
 	ts = time.time() - ts
 	print("Fibo(%d)=%d, time %.6f" %(nbr, fibonumber, ts))
-
 
 	ts = time.time()
 	fibonumber = iterfibo(nbr)
