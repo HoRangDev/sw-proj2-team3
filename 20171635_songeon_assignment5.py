@@ -1,22 +1,26 @@
 import timeit
 
 kfib_limit= 10001
-fib_memorization = [0 for i in range(kfib_limit)]
+lfib_memorization = [0 for i in range(kfib_limit)]
 
 def fib_memorization(n):
+    if n < 1:
+        return n
     if n == 1 or n == 2:
         return 1
     else:
         if not n < kfib_limit:
-            return fib_memorization(n-1) + fib_recursive(n-2)
+            return fib_memorization(n-1) + fib_memorization(n-2)
 
-        if fib_memorization[n]:
-            return fib_memorization[n]
+        if lfib_memorization[n]:
+            return lfib_memorization[n]
         else:
-            fib_memorization[n] = fib_memorization(n-1) + fib_recursive(n-2)
-            return fib_memorization[n]
+            lfib_memorization[n] = fib_memorization(n-1) + fib_memorization(n-2)
+            return lfib_memorization[n]
 
 def fib_recursive(n):
+    if n < 1:
+        return n
     if n == 1 or n == 2:
         return 1
     return fib_recursive(n-1) + fib_recursive(n-2)
@@ -33,14 +37,21 @@ def fib_loop(n):
     return cn
 
 if __name__ == "__main__":
-    st = timeit.default_timer()
-    print(fib_recursive(20))
-    print("recursive elapsed", timeit.default_timer() - st)
+    while True:
+        nbr = int(input("Enter a number: "))
+        if nbr == -1:
+            break
+        st1 = timeit.default_timer()
+        print(fib_recursive(nbr))
+        print("recursive elapsed %.6f"% round(timeit.default_timer() - st1, 6))
 
-    st = timeit.default_timer()
-    print(fib_memorization(20))
-    print("memorization elapsed", timeit.default_timer() - st)
+        st2 = timeit.default_timer()
+        print(fib_memorization(nbr))
+        print("memorization elapsed %.6f" % round(timeit.default_timer() - st2, 6))
 
-    st = timeit.default_timer()
-    print(fib_loop(20))
-    print("loop elapsed", timeit.default_timer() - st)
+        st3 = timeit.default_timer()
+        print(fib_loop(nbr))
+        print("loop elapsed %.6f" % round(timeit.default_timer() - st3, 6))
+
+        #for fill zero in memorization list
+        lfib_memorization = list(map(lambda x: 0, lfib_memorization))
