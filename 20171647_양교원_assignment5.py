@@ -1,5 +1,4 @@
 import time
-import random
 
 def iterfibo(n):
     if (n <= 1):
