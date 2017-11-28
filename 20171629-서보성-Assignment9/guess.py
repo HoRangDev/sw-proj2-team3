@@ -33,4 +33,4 @@ class Guess:
         self.guessedChars.append(character)
         
         if not '_' in self.k:
-            return true
+            return True
