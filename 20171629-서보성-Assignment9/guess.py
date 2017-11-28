@@ -34,3 +34,5 @@ class Guess:
         
         if not '_' in self.k:
             return True
+        else:
+            return False
