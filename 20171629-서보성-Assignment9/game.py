@@ -11,7 +11,7 @@ def gameMain():
     hangman = Hangman()
     maxTries = hangman.getLife()
 
-    while guess.numTries < maxTries:
+    while guess.F_tries < maxTries:
 
         display = hangman.get(maxTries - guess.F_tries)
         print(display)
