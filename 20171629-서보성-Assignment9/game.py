@@ -25,7 +25,11 @@ def gameMain():
             print('You already guessed \"' + guessedChar + '\"')
             continue
 
-        finished = guess.guess(guessedChar)
+        if guessedChar.isalpha():
+            finished = guess.guess(guessedChar)
+        else:
+            print("Not Alphabet!")
+            
         if finished == True:
             break
 
