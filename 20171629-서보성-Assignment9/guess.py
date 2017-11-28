@@ -31,3 +31,6 @@ class Guess:
 
         self.numTries += 1
         self.guessedChars.append(character)
+        
+        if not '_' in self.k:
+            return true
