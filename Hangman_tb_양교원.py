@@ -1,6 +1,6 @@
 import random
 
-def containing(str, sent):
+def findAll(str, sent):
     idx_list = []
     for idx in range(len(str)):
         if (str[idx] == sent):
@@ -160,7 +160,7 @@ class GameInstance:
         print(self.word)
 
     def input_sentence(self, sentence):
-        founded_list = containing(self.word, sentence)
+        founded_list = findAll(self.word, sentence)
         if (len(founded_list) == 0):
             self.decrease_life()
             if (not (sentence in self.wrong_answer)):
